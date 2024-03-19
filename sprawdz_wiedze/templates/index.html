@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktywny Quiz</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Quiz wiedzy ogólnej</h1>
+        <form action="/submit" method="post">
+            {% for question, options in questions.items() %}
+                <div class="card">
+                    <legend>{{ question }}</legend>
+                    {% for option in options %}
+                        <label class="custom-radio">
+                            <input type="radio" name="{{ question }}" value="{{ option }}" class="hidden-input">
+                            <div class="radio-button"></div>
+                            {{ option }}
+                        </label><br>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn-primary">Sprawdź Wyniki</button>
+        </form>
+    </div>
+</body>
+</html>

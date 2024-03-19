@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyniki Quizu</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Wyniki Quizu</h1>
+        <p>Twój wynik: {{ results.score }} / {{ results.total }}</p>
+        {% if results.score == results.total %}
+            <p class="result-message correct">Świetnie, wszystkie Twoje odpowiedzi są poprawne!</p>
+        {% elif results.score / results.total > 0.8 %}
+            <p class="result-message correct">Całkiem nieźle sobie radzisz, chociaż w niektórych odpowiedziach są błędy.</p>
+        {% elif results.score / results.total > 0.4 %}
+            <p class="result-message average">Nie jest źle, ale mogło być lepiej... Musisz się bardziej postarać.</p>
+        {% else %}
+            <p class="result-message incorrect">Twoja wiedza nie jest zadowalająca. Musisz jeszcze trochę poćwiczyć.</p>
+        {% endif %}
+        <ul>
+            {% for question, result in results.question_results.items() %}
+                <div class="card">
+                    <li>
+                        {{ question }}:
+                        {% for option in questions[question] %}
+                            <div class="{% if option == correct_answers[question] and result.is_correct %}correct{% elif option == result.selected_option and not result.is_correct %}incorrect{% endif %}">
+                                {{ option }}
+                            </div>
+                        {% endfor %}
+                    </li>
+                </div>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('retry_quiz') }}" class="btn-primary">Ponowne podejście do testu</a>
+    </div>
+</body>
+</html>

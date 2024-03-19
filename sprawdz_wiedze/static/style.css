@@ -1,0 +1,157 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    font-family: 'Inconsolata', monospace;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1.mb-4 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.btn-primary {
+    font-family: 'Inconsolata', monospace;
+    background-color: #c2a11a;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.btn-success {
+    font-family: 'Inconsolata', monospace;
+    background-color: #efe6d9;
+    border: none;
+    color: rgb(13, 13, 13);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    background-color: #d7d7d7;
+    border-color: #ffffff;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 30px;
+    transform: translateZ(25px);
+    transition: transform 0.3s ease;
+}
+
+.card legend {
+    font-size: 20px; 
+    margin-bottom: 25px; 
+}
+
+
+.card:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.card:hover {
+    transform: translateZ(50px);
+}
+
+.card label {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.card input {
+    height: 40px;
+    font-size: 16px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+.result-message {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.result-message.correct {
+    color: green;
+}
+
+.result-message.incorrect {
+    color: red;
+}
+
+.result-message.average {
+    color: orange;
+}
+
+
+/* Stylizacja zaznaczonego pola wyboru */
+.custom-radio input[type="radio"]:checked + .radio-button {
+    background-color: #44aaaa;
+    border-color: #44aaaa;
+}
+
+/* Stylizacja pola do zaznaczania */
+.custom-radio input[type="radio"] {
+    position: absolute;
+    left: -9999px; /* Ukryj standardowe pole do zaznaczania */
+}
+
+/* Stylizacja całego elementu label */
+.custom-radio {
+    position: relative;
+    padding-left: 40px; /* Dostosuj szerokość pola do zaznaczania */
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Stylizacja samego pola do zaznaczania */
+.radio-button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px; 
+    height: 20px; 
+    border: 2px solid #44aaaa;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Stylizacja pola do zaznaczania po najechaniu na label */
+.custom-radio:hover .radio-button {
+    border-color: #3d3d3d;
+}
